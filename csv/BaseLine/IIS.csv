@@ -6,4 +6,3 @@ IISlnk,!=,1,IIS 링크 사용금지,IIS-04
 EveryoneAcl,!=,1,IIS 데이터 파일 ACL,IIS-08
 DirBrowse,!=,1,IIS 디렉토리 리스팅 제거,IIS-12
 AspEnableParentPaths,!=,1,IIS 상위 디렉토리 접근 금지,IIS-13
-NoData,NoData,NoData,NoData,NoData
