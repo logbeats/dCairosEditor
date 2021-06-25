@@ -1,0 +1,34 @@
+0,1,2,3,4,5,6
+항목코드,점검항목,중요도,설정이름,설정값,점검결과,권고사항
+W-01,Administrator 계정 이름 바꾸기,상,,,,Administrator 계정 이름 변경
+W-02,GUEST 계정 상태,상,,,,EnableGuestAccount 0
+W-03,불필요한 계정 제거,상,,,,불필요한 계정 삭제
+W-04,계정 잠금 임계값 설정,상,,,,LockoutBadCount 5
+W-05,패스워드 최대 사용 기간 설정,중,,,,MaximumPasswordAge 90
+W-06,암호 사용 기간 제한없음 제거,하,,,,MinimumPasswordAge 0 값이 아닌값
+W-07,해독 가능한 암호화를 사용하여 암호 저장,상,,,,ClearTextPassword 0 값이 아닌값
+W-08,관리자 그룹에 최소한의 사용자 포함,상,,,,불필요한 관리자 계정 삭제
+W-09,공유 권한 및 사용자 그룹 설정,상,,,,shareEveryone 0
+W-10,하드디스크 기본 공유 제거,상,,,,AutoShareServer 0
+W-11,불필요한 서비스 제거,상,,,,불필요한 서비스 제거
+W-12,NetBIOS 바인딩 서비스 구동 점검,상,,,,TCP/IP와 NetBIOS 간의 바인딩 제거 
+W-13,FTP 서비스 구동 점검,상,,,,불필요한 서비스 제거
+W-14,FTP 디렉토리 접근 권한 설정,상,,,,FtpDirEveryone 0
+W-15,Anonymous FTP 금지,상,,,,사용 시 익명 연결 허용 체크 해제
+W-16,FTP 접근제어 설정,상,,,,사용 시 접근제어 설정
+W-17,DNS Zone Transfer 설정,상,,,,영역 전송 허용을 하지 않거나 특정 서버로만 설정한다.
+W-18,RDS(Remote Data Services) 제거,상,Windows 2000,이상,0,해당 취약점에 대한 패치 적용
+W-19,최신 서비스팩 적용,상,Windows 2012,이상,0,2012이전 버전의 경우 최신 SP 적용
+W-20,최신 HOT-FIX 적용,상,,,,최신 업데이트 적용
+W-21,백신 프로그램 업데이트,상,,,,최신 업데이트 적용
+W-22,로그의 정기적 검토 및 보고,상,,,,SeSecurityPrivilege *S-1-5-32-544
+W-23,원격으로 엑세스할 수 있는 레지스트리 경로,상,,,,원격 레지스트리 서비스 중지
+W-24,백신 프로그램 설치,상,,,,백신 프로그램 설치(WinDefender 1:기본백신)
+W-25,SAM 파일 접근 통제 설정,상,,,,접근권한에 Everyone 제거
+W-26,화면보호기 설정,상,,,,"ScreenSaveActive 1, ScreenSaverIsSecure 1, ScreenSaveTimeout 300"
+W-27,로그온하지 않고 시스템 종료 허용,상,,,,ShutdownWithoutLogon 0
+W-28,원격 시스템에서 강제로 시스템 종료,상,,,,"관리자 계정 제외, 권한 제한 사용"
+W-29,보안 감사를 로그할 수 없는 경우 즉시 시스템 종료,상,,,,CrashOnAuditFail 0
+W-30,SAM 계정과 공유의 익명 열거 허용 안 함,상,,,,"restrictanonymoussam 1, RestrictAnonymous 1"
+W-31,Autologon 기능 제어,상,,,,AutoAdminLogon 0 or NoData
+W-32,이동식 미디어 포맷 및 꺼내기 허용,상,,,,AllocateDASD 0 or NoData

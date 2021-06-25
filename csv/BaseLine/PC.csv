@@ -1,0 +1,20 @@
+0,1,2,3,4
+Name,Compare,Data,Explanatory,ItemCode
+MaximumPasswordAge,<=,90,최대 암호 기간,PC-01
+MinimumPasswordLength,>=,8,최소 암호 길이,PC-02
+wireless zero configuration,!=,Running,802.11 어댑터에 대해 자동 구성을 공급하는 기본적인 도구,PC-04
+portable media serial number,!=,Running,컴퓨터에 연결된 이동성 음악연주기(미디기기)의 등록번호를 복원하는 기능,PC-04
+netmeeting remote desktop sharing,!=,Running,넷미팅을 사용해서 원격으로 컴퓨터에 접근할 수 있도록 하는 기능,PC-04
+messenger,!=,Running,클라이언트와 서버 사이에 netsend 및 경고서비스 메시지를 전송하는 기능,PC-04
+imapi cd-burning com service,!=,Running,CD-RW 장착되어 보조백업장치 역할을 하기 위해서 자체 레코딩 백업을 할 수 있음,PC-04
+human interface device acces,!=,Running,HID장치들을 위한 서비스 기능,PC-04
+error reporting service,!=,Running,응용프로그램 오류를 MS에 보고하는 서비스 기능,PC-04
+clipbook,!=,Running,서버 내 Clipbook을 다른 클라이언트와 공유,PC-04
+automatic updates,!=,Running,MS패치 관리 서버로 패치를 일괄적으로 관리하는 경우 서비스 기능,PC-04
+alerter,!=,Running,관리용 경고메시지를 전송하는 기능,PC-04
+SecurityUpdate,>=,06.01.2021,최신 업데이트 여부,PC-06
+EnableFirewall,==,1,방화벽 사용,PC-10
+ScreenSaveActive,==,1,ScreenSaveActive,PC-11
+ScreenSaverIsSecure,==,1,ScreenSaverIsSecure,PC-11
+ScreenSaveTimeout,>=,300,ScreenSaveTimeout,PC-11
+NoDriveTypeAutoRun,==,ff,이동식 미디어에 대한 보안대책 수립,PC-12

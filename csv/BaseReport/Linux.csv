@@ -1,0 +1,38 @@
+0,1,2,3,4,5,6
+항목코드,점검항목,중요도,설정이름,설정값,점검결과,권고사항
+U-01,root 계정 원격 접속 제한,상,,,,PermitRootLogin: no or NoData
+U-02,패스워드 복잡성 설정,상,,,,lcredit : -1 and ucredit : -1 and dcredit : -1 and ocredit : -1 and minlen : 8
+U-03,계정 잠금 임계값 설정,상,,,,Dery : 5 이하
+U-04,패스워드 최대 사용 기간 설정,중,,,,PASS_MAX_DAYS : 90 이하
+U-05,패스워드 파일 보호,상,클라우드 ,환경,0,일부 오래된 시스템의 경우 패스워드를 평문 저장되어 취약
+U-06,root 홈 패스 디렉터리 권한 및 패스 설정,상,,,,rootPathDir : 0
+U-07,파일 및 디렉터리 소유자 설정,상,,,,NouserGroup : 0 or NoData
+U-08,/etc/passwd 파일 소유자 및 권한 설정,상,,,,/etc/passwd : 644
+U-09,/etc/shadow 파일 소유자 및 권한 설정,상,,,,/etc/shadow : 640
+U-10,/etc/hosts 파일 소유자 및 권한 설정,상,,,,/etc/hosts : 644
+U-11,/etc/(x)inetd.conf 파일 소유자 및 권한 설정,상,,,,/etc/(x)inetd.conf : 644 or NoData
+U-12,/etc/syslog.conf 파일 소유자 및 권한 설정,상,,,,/etc/rsyslog.conf or /etc/syslog.conf : 644
+U-13,/etc/services 파일 소유자 및 권한 설정,상,,,,/etc/services : 644
+U-14,SUID SGID Sticky bit 설정 파일 점검,상,StickBit,확인,0,StickBit 관리 및 확인
+U-15,사용자 시스템 시작파일 및 환경파일 소유자 및 권한 설정,상,RootOrUser,확인,0,RootOrUser 관리 및 확인
+U-16,world writable 파일 점검,상,WorldWritable,확인,0,WorldWritable 관리 및 확인
+U-17,"$HOME/.rhosts, hosts.equiv 사용 금지",상,,,,NoData : Service 미동작 양호
+U-18,접속 IP 및 포트 제한,상,클라우드, 콘솔,0,클라우드 서비스의 경우 관리콘솔에서 여부 확인
+U-19,cron 파일 소유자 및 권한 설정,상,,,,NoData : Service 미동작 양호
+U-20,Finger 서비스 비활성화,상,,,,NoData : Service 미동작 양호
+U-21,Anonymous FTP 비활성화,상,,,,anonymous_enable: no or NoData
+U-22,r 계열 서비스 비활성화,상,,,,NoData : Service 미동작 양호
+U-23,DoS 공격에 취약한 서비스 비활성화,상,,,,NoData : Service 미동작 양호
+U-24,NFS 서비스 비활성화,상,,,,NoData : Service 미동작 양호
+U-25,NFS 접근통제,상,클라우드, 콘솔,0,클라우드 서비스의 경우 관리콘솔에서 여부 확인
+U-26,automountd 제거,상,,,,NoData : Service 미동작 양호
+U-27,RPC 서비스 확인,상,,,,NoData : Service 미동작 양호
+U-28,NIS NIS+ 점검,상,,,,NoData : Service 미동작 양호
+U-29,tftp talk 서비스 비활성화,상,,,,NoData : Service 미동작 양호
+U-30,Sendmail 버전 점검,상,,,,sendmail : 8.13.8 or NoData 양호
+U-31,스팸 메일 릴레이 제한,상,,,,sendmail 8.9.0 이상 or NoData 양호
+U-32,일반사용자의  Sendmail 실행 방지,상,클라우드,환경,0,일반 사용자 환경이 아닌 서비스 기반 환경
+U-33,DNS 보안 버전 패치,상,,,,BIND 4.9.8 or 8.2.3 or NoData 양호
+U-34,DNS ZoneTransfer 설정,상,클라우드,환경,0,비인가자 접근 가능 환경이 아닌 서비스 기반 환경
+U-35,최신 보안패치 및 벤더 권고사항 적용,상,클라우드,환경,0,클라우드 서비스의 경우 제공없체에서 관리
+U-36,로그의 정기적 검토 및 보고,상,클라우드 ,콘솔,0,클라우드 서비스의 경우 관리콘솔에서 여부 확인

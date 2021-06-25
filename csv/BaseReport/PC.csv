@@ -1,0 +1,14 @@
+0,1,2,3,4,5,6
+항목코드,점검항목,중요도,설정이름,설정값,점검결과,권고사항
+PC-01,패스워드의 주기적 변경,상,,,,MaximumPasswordAge 90
+PC-02,패스워드 정책이 해당 기관의 보안 정책에 적합하게 설정,상,,,,MinimumPasswordLength 8 
+PC-03,공유 폴더 제거,상,내부정책으로 인해,양호,0,AutoShareWks 0
+PC-04,항목의 불필요한 서비스 제거,상,,,,불필요한 서비스 중지
+PC-05,"Windows Messenger(MSN, .NET 메신저 등)와 같은 상용메신저의 사용 금지",상,라인메신저,사용,3,PreventRun 1
+PC-06,HOT FIX 등 최신 보안패치 적용,상,,,,최신 업데이트 상태 유지 및 관리
+PC-07,최신 서비스팩 적용,상,Windows7,이상,0,Windows10 OS 업그레이드 권고
+PC-08,바이러스 백신 프로그램 설치 및 주기적 업데이트,상,Symantec백신,사용,0,백신 설치 및 최신 업데이트 적용
+PC-09,바이러스 백신 프로그램에서 제공하는 실시간 감시 기능 활성화,상,Symantec백신,사용,0,실시간 감시 기능을 활성화
+PC-10,OS에서 제공하는 침입차단 기능 활성화,상,,,,EnableFirewall 1
+PC-11,화면보호기 대기 시간 설정 및 재시작 시 암호 보호 설정,상,,,,ScreenSaveActive 1 ScreenSaverIsSecure 1 ScreenSaveTimeout 300
+PC-12,"CD, DVD, USB 메모리 등과 같은 미디어의 자동실행 방지 등 이동식 미디어에 대한 보안대책 수립",상,,,,NoDriveTypeAutoRun ff

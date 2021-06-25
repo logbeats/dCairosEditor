@@ -1,0 +1,44 @@
+0,1,2,3,4
+Name,Compare,Data,Explanatory,ItemCode
+NewAdministratorName,!=,Administrator,Administator 계정 이름 바꾸기 설정,W-01
+EnableGuestAccount,==,0,Guest 계정 상태,W-02
+UserAccount,<=,2,사용자 활성화 여부,W-03
+LockoutBadCount,<=,5,계정 잠금 임계값 설정,W-04
+MaximumPasswordAge,>=,90,최대 암호 기간,W-05
+MinimumPasswordAge,!=,0,암호 사용기간 제한없음 제거,W-06
+ClearTextPassword,==,0,해독 가능한 암호화를 사용하여 암호 저장 설정,W-07
+Administrators,<=,2,관리자 그룹에 최소한의 사용자 포함 여부,W-08
+shareEveryone,==,0,공유 권한 및 사용자 그룹 설정,W-09
+AutoShareServer,==,0,AutoShareServer(WinNT : AutoShareWks),W-10
+wireless zero configuration,!=,Running,802.11 어댑터에 대해 자동 구성을 공급하는 기본적인 도구,W-11
+portable media serial number,!=,Running,컴퓨터에 연결된 이동성 음악연주기(미디기기)의 등록번호를 복원하는 기능,W-11
+netmeeting remote desktop sharing,!=,Running,넷미팅을 사용해서 원격으로 컴퓨터에 접근할 수 있도록 하는 기능,W-11
+messenger,!=,Running,클라이언트와 서버 사이에 netsend 및 경고서비스 메시지를 전송하는 기능,W-11
+imapi cd-burning com service,!=,Running,CD-RW 장착되어 보조백업장치 역할을 하기 위해서 자체 레코딩 백업을 할 수 있음,W-11
+human interface device acces,!=,Running,HID장치들을 위한 서비스 기능,W-11
+error reporting service,!=,Running,응용프로그램의 오류를 MS에 보고하는 서비스 기능,W-11
+clipbook,!=,Running,서버 내 Clipbook을 다른 클라이언트와 공유,W-11
+alerter,!=,Running,관리용 경고메시지를 전송하는 기능,W-11
+automatic updates,!=,Running,MS패치 관리 서버로 패치를 일괄적으로 관리하는 경우 서비스 기능,W-11
+NetBiosOptions,==,0,NetBIOS 바인딩 서비스 구동,W-12
+Microsoft FTP Service,!=,Running,Microsoft FTP Service 구동,W-13
+FtpDirEveryone,==,0,FTP 디렉토리 접근 권한 설정,W-14
+AnonymousFTP,==,0,Anonymous FTP 사용,W-15
+AcctypeUsersIP,==,1,FTP 접근제어 설정,W-16
+DNSZoneTransfer,==,0,DNS Zone Transfer,W-17
+SecurityUpdate,>=,06.01.2021,최신 HOT-FIX 적용,W-20
+ASSignatureVersion,>=,1.297,ASSignatureVersion,W-21
+SeSecurityPrivilege,==,*S-1-5-32-544,감사 및 보안 로그 관리 여부,W-22
+remoteregistry,!=,Running,원격 사용자가 이 컴퓨터에서 레지스트리 설정을 수정할 수 있도록 설정하는 어플리케이션,W-23
+Microsoft Defender Antivirus Service,==,Running,WinDefend Service 구동,W-24
+SamFile,==,0,SAM 파일 접근 통제,W-25
+ScreenSaveActive,!=,0,ScreenSaveActive,W-26
+ScreenSaveTimeout,>=,300,ScreenSaveTimeout,W-26
+ScreenSaverIsSecure,!=,0,ScreenSaverIsSecure,W-26
+ShutdownWithoutLogon,!=,1,로그온 하지 않고 시스템 종료 허용,W-27
+SeRemoteShutdownPrivilege,==,*S-1-5-32-544,원격 시스템에서 시스템 강제로 시스템 종료,W-28
+CrashOnAuditFail,==,0,보안 감사를 로그할 수 없는 경우 즉시 시스템 종료,W-29
+restrictanonymoussam,==,1,SAM 계정의 익명 열거,W-30
+RestrictAnonymous,==,1,SAM 계정과 공유의 익명 열거,W-30
+AutoAdminLogon,!=,1,Autologon 기능 제어,W-31
+AllocateDASD,!=,1,이동식 미디어 포맷 및 꺼내기 허용,W-32
