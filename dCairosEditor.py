@@ -1,13 +1,13 @@
-from PyQt5.QtWidgets import QWidget, QTableView, QLineEdit, QPushButton, QButtonGroup, QHBoxLayout, QGridLayout
-from PyQt5.QtWidgets import QVBoxLayout, QFileDialog, QApplication, QDesktopWidget, QComboBox, QLabel, QMenu, QAction
-from PyQt5.QtCore import Qt, QRegExp, QSortFilterProxyModel, QModelIndex
-from PyQt5 import QtCore
-from PyQt5.QtGui import QFont
 import sys
 import os
 import numpy as np
 import pandas as pd
+from PyQt5 import QtCore
+from PyQt5.QtGui import QFont
 from PandasModellib import PandasModel
+from PyQt5.QtWidgets import QWidget, QTableView, QLineEdit, QPushButton, QButtonGroup, QHBoxLayout, QGridLayout
+from PyQt5.QtWidgets import QVBoxLayout, QFileDialog, QApplication, QDesktopWidget, QComboBox, QLabel, QMenu, QAction
+from PyQt5.QtCore import Qt, QRegExp, QSortFilterProxyModel, QModelIndex
 
 
 class CustomProxyModel(QSortFilterProxyModel):
@@ -71,14 +71,10 @@ class dCairosEditor(QWidget):
         self.lineEdit.textChanged.connect(self.on_lineEdit_textChanged)
         self.comboBox.currentIndexChanged.connect(self.on_comboBox_currentIndexChanged)
 
-       # self.horizontalHeader = self.tableView.horizontalHeader()
-       # self.horizontalHeader.sectionClicked.connect(self.on_view_horizontalHeader_sectionClicked)
-
         self.tableView.resizeColumnsToContents()  # 컬럼 전체 자동 사이즈 조절
         self.tableView.resizeRowsToContents()  # 행 전체 자동 사이즈 조절
 
         self.tableView.setAlternatingRowColors(True)
-     #   self.tableView.setSortingEnabled(True)
         self.selectRow = self.model.rowCount(QModelIndex())
 
         self.filters = "CSV files (*.csv)"
@@ -113,7 +109,6 @@ class dCairosEditor(QWidget):
         Vlayout.addLayout(layout)
         
         self.setLayout(Vlayout)
-################################################################################
 
 ################################################################################
     def handleSave(self):
@@ -143,9 +138,7 @@ class dCairosEditor(QWidget):
         self.fileName, self.filterName = QFileDialog.getOpenFileName(self)
 
         if self.fileName != '':
-            #self.index = pd.read_csv(self.fileName).index.tolist()
             self.header = pd.read_csv(self.fileName).loc[0].tolist()
-
             df = pd.read_csv(self.fileName, header=1)
             self.model = None
             self.model = PandasModel(df)
