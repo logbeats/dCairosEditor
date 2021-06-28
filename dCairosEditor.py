@@ -71,14 +71,14 @@ class dCairosEditor(QWidget):
         self.lineEdit.textChanged.connect(self.on_lineEdit_textChanged)
         self.comboBox.currentIndexChanged.connect(self.on_comboBox_currentIndexChanged)
 
-        self.horizontalHeader = self.tableView.horizontalHeader()
-        self.horizontalHeader.sectionClicked.connect(self.on_view_horizontalHeader_sectionClicked)
+       # self.horizontalHeader = self.tableView.horizontalHeader()
+       # self.horizontalHeader.sectionClicked.connect(self.on_view_horizontalHeader_sectionClicked)
 
         self.tableView.resizeColumnsToContents()  # 컬럼 전체 자동 사이즈 조절
         self.tableView.resizeRowsToContents()  # 행 전체 자동 사이즈 조절
 
         self.tableView.setAlternatingRowColors(True)
-        self.tableView.setSortingEnabled(True)
+     #   self.tableView.setSortingEnabled(True)
         self.selectRow = self.model.rowCount(QModelIndex())
 
         self.filters = "CSV files (*.csv)"
@@ -143,18 +143,23 @@ class dCairosEditor(QWidget):
         self.fileName, self.filterName = QFileDialog.getOpenFileName(self)
 
         if self.fileName != '':
-            self.index = pd.read_csv(self.fileName).index.tolist()
+            #self.index = pd.read_csv(self.fileName).index.tolist()
             self.header = pd.read_csv(self.fileName).loc[0].tolist()
 
             df = pd.read_csv(self.fileName, header=1)
             self.model = None
             self.model = PandasModel(df)
-            self.tableView.setModel(self.model)
+            self.proxy = CustomProxyModel(self)
+            self.proxy.setSourceModel(self.model)
+            self.tableView.setModel(self.proxy)
+
             self.tableView.resizeColumnsToContents()  # 컬럼 전체 자동 사이즈 조절
             self.tableView.resizeRowsToContents()  # 행 전체 자동 사이즈 조절
             self.fileName = ''
+            self.lineEdit.clear()
             self.comboBox.clear()
             self.comboBox.addItems(["{0}".format(col) for col in self.model._data.columns])
+            
             return True
         else:
             return False
@@ -162,21 +167,24 @@ class dCairosEditor(QWidget):
 ################################################################################
     def insertRows(self, position, rows=1, index=QModelIndex()):
         self.selectRow = self.model.rowCount(QModelIndex())
-
         self.model.beginInsertRows(QModelIndex(), position, position + rows - 1)
         self.model._data.loc[self.selectRow] = 'NoData'
         self.model.endInsertRows()
-        
+
         return True
 
 ################################################################################
     def removeRows(self, position, rows=1, index=QModelIndex()):
         self.selectRow = self.model.rowCount(QModelIndex())
         self.model.beginRemoveRows(QModelIndex(), position, position + rows - 1)
-        self.model._data.drop(self.model._data.index[self.selectRow-1])
-        self.model.endRemoveRows()
+        if self.selectRow-1 >= 0:
+            self.model._data.drop([self.selectRow-1], inplace=True)
+            self.model._data.reset_index(drop=True, inplace=True)
+            self.model.endRemoveRows()
 
-        return True
+            return True
+        else:
+            return False
 
 ################################################################################
     def viewClicked(self, indexClicked):
@@ -191,41 +199,6 @@ class dCairosEditor(QWidget):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 ###############################################################################
-    @QtCore.pyqtSlot(int)
-    def on_view_horizontalHeader_sectionClicked(self, logicalIndex):
-
-        self.logicalIndex = logicalIndex
-        self.menuValues = QMenu(self)
-        self.signalMapper = QtCore.QSignalMapper(self)
-        self.comboBox.blockSignals(True)
-        self.comboBox.setCurrentIndex(self.logicalIndex)
-        self.comboBox.blockSignals(True)
-
-        valuesUnique = self.model._data.iloc[:, self.logicalIndex].unique()
-
-        actionAll = QAction("All", self)
-        actionAll.triggered.connect(self.on_actionAll_triggered)
-        self.menuValues.addAction(actionAll)
-        self.menuValues.addSeparator()
-        for actionNumber, actionName in enumerate(sorted(list(set(valuesUnique)))):
-            action = QAction(actionName, self)
-            self.signalMapper.setMapping(action, actionNumber)
-            action.triggered.connect(self.signalMapper.map)
-            self.menuValues.addAction(action)
-        self.signalMapper.mapped.connect(self.on_signalMapper_mapped)
-        headerPos = self.tableView.mapToGlobal(self.horizontalHeader.pos())
-        posY = headerPos.y() + self.horizontalHeader.height()
-        posX = headerPos.x() + self.horizontalHeader.sectionPosition(self.logicalIndex)
-
-        self.menuValues.exec_(QtCore.QPoint(posX, posY))
-
-    @QtCore.pyqtSlot()
-    def on_actionAll_triggered(self):
-        filterColumn = self.logicalIndex
-        self.proxy.setFilter("", filterColumn)
-        font = QFont()
-        self.model.setFont(filterColumn, font)
-
     @QtCore.pyqtSlot(int)
     def on_signalMapper_mapped(self, i):
         stringAction = self.signalMapper.mapping(i).text()
